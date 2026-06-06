@@ -1,0 +1,37 @@
+{
+  "name": "@paperclipai/plugin-agentmemory",
+  "version": "0.1.0",
+  "type": "module",
+  "private": true,
+  "description": "AgentMemory + CodeGraph hybrid memory plugin for Paperclip SDLC agents. Injects relevant past context before each agent run and stores run outcomes for future recall.",
+  "files": [
+    "dist",
+    "README.md"
+  ],
+  "scripts": {
+    "prebuild": "pnpm --filter @paperclipai/plugin-sdk ensure-build-deps",
+    "build": "node ./esbuild.config.mjs",
+    "dev": "node ./esbuild.config.mjs --watch",
+    "typecheck": "pnpm --filter @paperclipai/plugin-sdk ensure-build-deps && tsc --noEmit"
+  },
+  "paperclipPlugin": {
+    "manifest": "./dist/manifest.js",
+    "worker": "./dist/worker.js"
+  },
+  "keywords": [
+    "paperclip",
+    "plugin",
+    "agentmemory",
+    "memory",
+    "sdlc",
+    "codegraph"
+  ],
+  "author": "Paperclip",
+  "license": "MIT",
+  "devDependencies": {
+    "@paperclipai/plugin-sdk": "workspace:*",
+    "@types/node": "^24.6.0",
+    "esbuild": "^0.28.0",
+    "typescript": "^5.7.3"
+  }
+}
